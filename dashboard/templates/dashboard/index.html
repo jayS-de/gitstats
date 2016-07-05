@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    Hello World
+{% for issue in issues %}
+    <p>#{{ issue.number }} {{ issue.title }}: {{ issue.created_at }}</p>
+{#    {% for event in issue.events %}#}
+{#        <p>{{ event.name }}: {{ event.created_at }}: {{ event.milestone }}{{ event.label }}</p>#}
+{#    {% endfor %}#}
+    <p>
+    {% for state in issue.states %}
+        {{ state.name.value }}; {{ state.days }}; {{ state.total }}<br/>
+    {% endfor %}
+    </p>
+{% endfor %}
+</body>
+</html>
